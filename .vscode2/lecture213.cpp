@@ -22,9 +22,9 @@ using namespace std;
         cout<<v[i][j]<<" ";   //column wise
         }   cout<<endl;    }
         int top_sum =0, left_sum=0, topleft_sum=0;
-        if(L1!=0) top_sum=v[L1-1][R2];
-        if(R1!=0) left_sum=v[L2][R1-1];
-        if(L1!=0 && R1!=0) topleft_sum=v[L1-1][R1-1];
+        if(L1!=0) top_sum=v[L1-1][R2]; cout<<top_sum<<endl;
+        if(R1!=0) left_sum=v[L2][R1-1]; cout<<left_sum<<endl;
+        if(L1!=0 && R1!=0) topleft_sum=v[L1-1][R1-1]; cout<<topleft_sum<<endl;
     sum= v[L2][R2]-top_sum - left_sum + topleft_sum;
     return sum;    }
 int main(){
