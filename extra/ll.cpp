@@ -31,37 +31,15 @@ class linkedlist{
             temp=temp->next;    }
         cout<<"NULL"<<endl;
     }
-
-
-    void del(int &n){
-        node *curr=head;
-            int size=0;
-            while(curr!=NULL){
-                size++;
-                curr=curr->next;
-            }
-
-        int v=size-n;
-        node *temp=head;
-
-        int currpos=0;
-        while(currpos<v-1){
-            temp=temp->next;
-            currpos++;
-        }
-        node* prev=temp->next;
-
-        temp->next=prev->next;
-        delete(prev);
-    }
-    node* removeNthFromEnd(int n) {
-        if(head==NULL){
-            return head;
-        }
-        del(n);
-        return head;
-    }
 };
+void deletee(node* &head,int k){
+    node* ptr=head;
+    int d=k-1;
+    int c=0;
+    while(){
+        ptr=ptr->next;
+    }
+}
 
 int main(){
     linkedlist ll;
@@ -70,8 +48,5 @@ int main(){
     ll.insertattail(3);
     ll.insertattail(4);
     ll.insertattail(5);
-    ll.display();
-    int k; cin>>k;
-    ll.removeNthFromEnd(k);
     ll.display();
 return 0;     }
