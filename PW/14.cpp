@@ -1,5 +1,12 @@
 #include<iostream>
 using namespace std;
+/* 
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+ */
 int main(){
     int n; cin>>n;
     for(int i=1; i<=n; i++){

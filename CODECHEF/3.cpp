@@ -26,13 +26,6 @@ int main(){
                 c2++;
             }
         }
-      /*   if(t==1){
-            cout<<c1<<" "<<c2<<endl;
-            for(int i=1; i<n+1; i++){
-                cout<<c[i]<<" ";
-            }
-            cout<<endl;
-        } */
         for(int i=1; i<n; i++){
             int sum=c[i];
             int x=n-i+1;

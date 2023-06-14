@@ -2,8 +2,8 @@
 using namespace std;
 void f(int *array,int idx,int n, int targetvalue){
     if(idx==n){
-    cout<<"THE VALUE IS NOT PRESENT"; // array is tarversed completely but there is no element value =targetvalue
-        return;
+    cout<<"THE VALUE IS NOT PRESENT"; // array is tarversed completely 
+        return; //but there is no element value =targetvalue
     }
     if(targetvalue==array[idx]){
        cout<<"YES THE VALUE IS PRESENT AND THE INDEX = "<<idx<<endl;
