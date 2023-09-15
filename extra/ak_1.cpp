@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<bits/stdc++.h> //count no of setbits
 using namespace std;
 int f(int num){
     int count=0;
@@ -11,7 +11,7 @@ int f(int num){
     return count;
 }
 int main(){
-    int num=8;
+    int num; cin>>num;
     cout<<f(num)<<endl;
 return 0;
 }

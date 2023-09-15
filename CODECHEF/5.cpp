@@ -1,35 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long 
 int main(){
 	int t; cin>>t;
+	//set<string> s;
+    //vector<string> v;
+	string a="";
     while(t--){
-       int n,k,l; cin>>n>>k>>l;
-        vector<long long> v;
-        set<int> s;
-        while(n--){
-           long long a,b; cin>>a>>b;
-           if(b==l){
-               s.insert(a);}
-          }
-       
-        long long sum=0;
-        set<int>::iterator itr;
-        for(itr=s.begin(); itr!=s.end(); itr++){
-            v.push_back(*itr);
-        }
-        sort(v.begin(),v.end(),greater<long long>());
-        if(v.size()==0){
-           cout<<-1<<endl; }
-        else{
-           for(int i=0; i<k; i++){
-           sum+=v[i]; }
-        }
-        if(sum>0){
-            cout<<sum<<endl;
-        }
-           
-       
-
+       // your code goes here
+       string st; cin>>st;
+       string c=st.substr(st.size()-2,2);
+    reverse(c.begin(),c.end());
+    int idx=0;
+    size_t l=-1;
+    size_t h=-1;
+    size_t found=a.find(c);
+    if( found!=std::string::npos){
+    l=found;
+    h=found+c.length();
+    a.erase(l,h);
     }
+   a=a+c;
+  
+     reverse(a.begin(),a.end());
+    cout<<a<<endl;
 return 0;
 }
+ //cout<<a<<endl;
+    // for(auto itr=v.rbegin(); itr!=v.rend(); itr++){
+    //        string b=*itr;
+    //        string c=b.substr(b.size()-2,b.size()-1);
+    //        //a.push_back(c);
+    //        a=a+c;
+       }

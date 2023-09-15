@@ -1,57 +1,46 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long 
 int main(){
-    long long t; cin>>t;
+	int t; cin>>t;
+	//set<string> s;
+    vector<string> v;
+	string a="";
     while(t--){
-        long long n; cin>>n;
-        vector<long long> a(n+1);
-        for(long long i=1; i<n+1; i++){
-            cin>>a[i];
+       // your code goes here
+       string st; cin>>st;
+    //    if(s.find(st)!=s.end()){
+    //        s.erase(st);
+    //    }
+      // else{
+           //s.insert(st);
+      // }
+       for(int i=0; i<v.size(); i++){
+        if(v[i]==st){
+            v.erase(v.begin()+i);
         }
-        vector<long long> b(n+1);
-        for(long long i=1; i<n+1; i++){
-            b[i]=pow(2,(i-1));
-        }
-        vector<long long> c(n+1);
-        for(long long i=1; i<n+1; i++){
-            c[i]=a[i]*b[i];
-        }
-        long long c1=0, c2=0;
-        for(long long i=1; i<n+1; i++){
-            if(c[i]>0){
-                c1++;
-            }
-            if(c[i]<0){
-                c2++;
-            }
-        }
-        /* for(int i=1; i<n+1; i++){
-            int sum=c[i];
-            for(long long j=i+1; j<n+1; j++){
-                sum=sum+c[j];
-                if(sum>0){
-                    c1++;
-                }
-                if(sum<0){
-                    c2++;
-                }
-            }
-        } */
-        /* if(c1==1 && c2==1){
-            cout<<0<<endl;
-        }
-        else if(c1==1){
-        cout<<c2*(c2+1)/2<<endl; }
-        else if(c2==1){
-            cout<<c1*(c1+1)/2<<endl;
-        }
-        else{
-            cout<<abs(1*(c1+1)/2 -(c2*(c2+1)/2));
-        } */
-
-
-
-
+        //
+       }
+       v.push_back(st);
+       
     }
+    // for(auto itr=s.rbegin(); itr!=s.rend(); itr++){
+    //     cout<<*itr<<" ";
+    // }
+    // cout<<endl;
+    // for(auto itr=s.begin(); itr!=s.end(); itr++){
+    //     cout<<*itr<<" ";
+    // }
+    for(int i=0; i<v.size(); i++){
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+    for(auto itr=v.rbegin(); itr!=v.rend(); itr++){
+           string b=*itr;
+           string c=b.substr(b.size()-2,b.size()-1);
+           //a.push_back(c);
+           a=a+c;
+       }
+    cout<<a<<endl;
 return 0;
 }

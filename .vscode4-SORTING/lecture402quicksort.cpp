@@ -15,7 +15,9 @@ void quicksort(int *array,int first,int last){
     if(first>=last){  //base case
         return;  }
     int pi=partition(array,first,last);
+
     quicksort(array,first,pi-1);
+    
     quicksort(array,pi+1,last);   }
 int main(){
     int array[]={20,12,35,16,18,30};    int n=sizeof(array)/sizeof(array[0]);

@@ -11,6 +11,14 @@ class Node{
         right=NULL;
     }
 };
+void topview(Node * root){ //ieee
+    if(root==NULL){
+        return ;
+    }
+    queue<Node*> q;
+    q.push(root);
+    
+}
 void viewFromTop(Node* root,vector<int> &a){
     if(root==NULL){
         return ;
