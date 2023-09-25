@@ -14,11 +14,11 @@ struct node *current = NULL;
 //insertion at the beginning
 void insertatbegin(int data){ //for insertion at the start of the linked list
    struct node *new_node = (struct node*) malloc(sizeof(struct node)); //new node creation
-   new_node->data = data; //to store the data in new_node
+   new_node->data = data; // to store the data in new_node
 
    new_node->next = head; // point it to old first node
 
-   head = new_node; //point first to new first node
+   head = new_node; // point first to new first node
 }
 //insertion at the end
 void insertatend(int data){ 
