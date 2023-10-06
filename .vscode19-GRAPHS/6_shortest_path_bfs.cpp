@@ -20,6 +20,7 @@ void bfs(int src,int dest,vector<int> &dist){ // in unweighted graph shortest
     qu.push(src);
     while(qu.empty()!=1){
         int curr=qu.front();
+        cout<<curr<<" "; // traversal via bfs 
         qu.pop();
         for(auto neighbour: graph[curr]){
             if(not visited.count(neighbour)){ //only to that neighbour which is not counted till now
@@ -29,6 +30,7 @@ void bfs(int src,int dest,vector<int> &dist){ // in unweighted graph shortest
             }
         }
     }
+    cout<<endl;
 }
 int main(){
     cin>>v;
