@@ -30,7 +30,7 @@ void insert_at_head(int data)
     } else {
         new_node->next = head;
         head->prev = new_node;
-        head = new_node;
+        head = new_node; 
     }
 }
 // insert a node at the end of the list
