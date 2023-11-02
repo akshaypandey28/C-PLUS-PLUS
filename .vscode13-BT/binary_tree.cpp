@@ -79,9 +79,7 @@ void preOrderIterative(Node* root){
     cout<<endl;
 }
 void inOrderIterative(Node* root){
-    stack<Node*> s; //stack is like root right left and also ans 
-    //but in postorder traversal is like left right root
-    //that's why ans is reversed 
+    stack<Node*> s; 
     vector<int> ans;
     Node* node=root;
     while(s.empty()!=1 || node!=NULL){
