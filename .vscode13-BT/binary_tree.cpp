@@ -61,6 +61,71 @@ void levelOrder(Node* rootNode){
         cout<<endl;
     }
 }
+void preOrderIterative(Node* root){
+    stack<Node*> s;
+    vector<int> ans;
+    if(root!=NULL) s.push(root);
+    while(s.empty()!=1){
+        Node* temp=s.top();
+        s.pop();
+        ans.push_back(temp->value);
+//here right and then left is pushed because stack is lifo data structure that's why right and then left
+        if(temp->right) s.push(temp->right);
+        if(temp->left)  s.push(temp->left);
+    }
+    for (auto ele:ans){
+        cout<<ele<<" ";
+    }
+    cout<<endl;
+}
+void inOrderIterative(Node* root){
+    stack<Node*> s; //stack is like root right left and also ans 
+    //but in postorder traversal is like left right root
+    //that's why ans is reversed 
+    vector<int> ans;
+    Node* node=root;
+    while(s.empty()!=1 || node!=NULL){
+        if(node!=NULL) {
+            s.push(node);
+            node=node->left;
+        }
+        else { //node is NULL
+            Node* temp=s.top();
+            s.pop();
+            ans.push_back(temp->value);
+            node=temp->right;
+        }
+    }
+    for (auto ele:ans){
+        cout<<ele<<" ";
+    }
+    cout<<endl;
+}
+void postOrderIterative(Node* root){
+    stack<Node*> s; //stack is like root right left and also ans 
+    //but in postorder traversal is like left right root
+    //that's why ans is reversed 
+    vector<int> ans;
+    if(root!=NULL) s.push(root);
+    while(s.empty()!=1){
+        Node* temp=s.top();
+        s.pop();
+        ans.push_back(temp->value);
+        //here right and then left is pushed 
+        if(temp->left){
+            s.push(temp->left);
+        }
+        if(temp->right){
+            s.push(temp->right);
+        }
+    }
+    reverse(ans.begin(),ans.end());
+    for (auto ele:ans){
+        cout<<ele<<" ";
+    }
+    cout<<endl;
+}
+
 int main(){
     Node* rootNode=new Node(2);
     rootNode->left=new Node(4);
@@ -69,8 +134,8 @@ int main(){
     rootNode->left->right=new Node(5);
     rootNode->right->right=new Node(11);
     rootNode->right->right->right=new Node(12);
-    // cout<<"root node :"<<root->value<<"- root left :"<<
-    // root->left->value<<"- root right :"<<root->right->value<<endl;
+    // cout<<"root node :"<<rootNode->value<<"- root left :"<<
+    // rootNode->left->value<<"- root right :"<<rootNode->right->value<<endl;
     cout<<"PreOrder ";
     preOrder(rootNode);
     cout<<endl;
@@ -83,5 +148,15 @@ int main(){
     cout<<"LevelOrder"<<endl;
     levelOrder(rootNode);
     cout<<endl;
+    cout<<"PreOrder Iterative ";
+    preOrderIterative(rootNode);
+    cout<<endl;
+    cout<<"InOrder Iterative ";
+    inOrderIterative(rootNode);
+    cout<<endl;
+    cout<<"PostOrder Iterative ";
+    postOrderIterative(rootNode);
+    cout<<endl;
+
 return 0;
 }
