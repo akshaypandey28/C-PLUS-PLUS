@@ -1,8 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-return 0;
-}
 class Solution {
 public:
    static bool cmp(vector<int> a,vector<int> b){ //here a and b is a array
@@ -24,3 +21,6 @@ public:
         return count;
     }
 };
+int main(){
+return 0;
+}

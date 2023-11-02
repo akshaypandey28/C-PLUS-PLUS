@@ -12,14 +12,5 @@ class Node{
     }
 };
 int main(){
-    Node* rootNode=new Node(10);
-    rootNode->left=new Node(5);
-    rootNode->left->left=new Node(3);
-    rootNode->left->left->left=new Node(3);
-    rootNode->left->left->right=new Node(-2);
-    rootNode->right=new Node(-3);
-    rootNode->left->right=new Node(2);
-    rootNode->right->right=new Node(11);
-    rootNode->right->right->right=new Node(12);
 return 0;
 }

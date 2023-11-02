@@ -9,10 +9,7 @@ int getMin(stack<int> &st){ //Time O(n)
             mini=st.top(); }
         st.pop();
     }
-    while(temp.empty()!=1){
-        int top=temp.top();
-        st.push(top);
-        temp.pop();  }
+    
     return mini;    }
 int main(){ //brute force appraoch
     stack<int> st;

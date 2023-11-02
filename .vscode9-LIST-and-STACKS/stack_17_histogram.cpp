@@ -1,5 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
+/* 
+
+ */
 int histogram(vector<int> &arr){
     int n=arr.size();
     stack<int> st; //storing indexes
@@ -7,8 +10,8 @@ int histogram(vector<int> &arr){
     int ans=INT16_MIN;
     for(int i=1; i<n; i++){
         while(st.empty()!=1  && arr[i]< arr[st.top()]){ //nse
-            int ele=arr[st.top()]; //current bar to be removed whose answer will
-            int nsi=i;  //be calculated
+            int ele=arr[st.top()]; //current bar to be removed whose answer will be calculated
+            int nsi=i;  
             st.pop();
             int psi=(st.empty())? -1 : st.top();
             ans=max(ans,ele*(nsi-psi-1));

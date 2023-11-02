@@ -27,6 +27,5 @@ int main(){
         add_edge(s,d,wt);
     }
     display();
-
 return 0;
 }

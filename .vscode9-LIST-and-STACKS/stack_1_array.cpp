@@ -8,7 +8,7 @@ class Stacks{
     public :
     Stacks(int c){
         this->capacity=c;
-        arr=new int [c];
+        arr=new int [c]; //dynamic way of assiging the size of the array
         this->top=-1;
     }
     void push(int data){

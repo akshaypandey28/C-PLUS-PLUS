@@ -3,7 +3,7 @@
 #include<stack>
 using namespace std;
 stack<int> copyStack(stack<int> &st1){
-stack<int> temp;//beacuse when we copy one stack to another then it 
+    stack<int> temp;//beacuse when we copy one stack to another then it 
 //copy in reverse order that means i have to make one another stack
 //such that i copy temp stack in st2 it follows same rule this get 
 //again copy i found my desires answer

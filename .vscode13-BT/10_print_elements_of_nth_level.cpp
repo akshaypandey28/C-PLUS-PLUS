@@ -11,6 +11,17 @@ class Node{
         right=NULL;
     }
 };
+//nth level can be printed by the same code of preorder inorder and postorder
+void nthlevel(Node* root,int currLevel,int reqlevel){ //from left to right
+    if(root==NULL) return ;
+    if(currLevel==reqlevel) {
+        cout<<root->value<<" ";
+        return ;
+    }
+    nthlevel(root->left,currLevel+1,reqlevel);
+    nthlevel(root->right,currLevel+1,reqlevel);
+}
+
 int main(){
     Node* rootNode=new Node(2);
     rootNode->left=new Node(4);
@@ -18,6 +29,6 @@ int main(){
     rootNode->left->left=new Node(6);
     rootNode->left->right=new Node(5);
     rootNode->right->right=new Node(11);
-    rootNode->right->right->right=new Node(12);
+    nthlevel(rootNode,1,3);
 return 0;
 }

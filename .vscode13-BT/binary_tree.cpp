@@ -68,14 +68,19 @@ int main(){
     rootNode->left->left=new Node(6);
     rootNode->left->right=new Node(5);
     rootNode->right->right=new Node(11);
+    rootNode->right->right->right=new Node(12);
     // cout<<"root node :"<<root->value<<"- root left :"<<
     // root->left->value<<"- root right :"<<root->right->value<<endl;
+    cout<<"PreOrder ";
     preOrder(rootNode);
     cout<<endl;
+    cout<<"InOrder ";
     inOrder(rootNode);
     cout<<endl;
+    cout<<"PostOrder ";
     postOrder(rootNode);
     cout<<endl;
+    cout<<"LevelOrder"<<endl;
     levelOrder(rootNode);
     cout<<endl;
 return 0;
