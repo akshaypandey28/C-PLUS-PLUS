@@ -10,7 +10,8 @@ struct TreeNode {
      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
-class Solution {
+//1st Solution
+class Solution { 
 public:
     int levels(TreeNode* root){
         if(root==NULL) return 0;
@@ -28,6 +29,25 @@ public:
         for(int i=0; i<n; i++){
             preLevelOrder(root,0,i,ans);
         }
+        return ans;
+    }
+};
+//2nd Solution
+class Solution {
+public:
+    int levels(TreeNode* root){
+        if(root==NULL) return 0;
+        return 1+ max(levels(root->left) , levels(root->right));
+    }
+    void preOrder(TreeNode* root,vector<int> &ans,int level){ //i want root left and then right
+        if(root==NULL) return ;
+        ans[level]=root->val;
+        preOrder(root->left,ans,level+1);
+        preOrder(root->right,ans,level+1);
+    }
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans(levels(root),0);
+        preOrder(root,ans,0);
         return ans;
     }
 };
