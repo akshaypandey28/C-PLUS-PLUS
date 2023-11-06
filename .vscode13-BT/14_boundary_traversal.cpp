@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+int N=INT_MIN;
 class Node{
     public :
     int value;
@@ -21,9 +22,9 @@ Node* construct(int arr[],int n){
         q.pop();
         Node* l;
         Node* r;
-        if(arr[i]!=INT_MIN) l=new Node(arr[i]);
+        if(arr[i]!=N) l=new Node(arr[i]);
         else l=NULL;
-        if(arr[j]!=INT_MIN and j!=n) r=new Node(arr[j]);
+        if(arr[j]!=N and j!=n) r=new Node(arr[j]);
         else r=NULL;
         temp->left=l;
         temp->right=r;
@@ -95,6 +96,8 @@ void boundary(Node* root){
 int main(){
     //construct
     int arr[]={1,2,3,4,5,INT_MIN,6,7,INT_MIN,8,INT_MIN,9,10,INT_MIN,11,INT_MIN,12,INT_MIN,13,INT_MIN,14,15,16,INT_MIN,17,INT_MIN,INT_MIN,18,INT_MIN,19,INT_MIN,INT_MIN,INT_MIN,20,21,22,23,INT_MIN,24,25,26,27,INT_MIN,INT_MIN,28,INT_MIN,INT_MIN};
+    
+    //int arr[]={17, N, 1, N, 9, N, 2, N, 11, N, 16, N, 8, N, 5, N, 3, N, 10, N, 13, N, 5, N, 13, N, 7, N, 10, N, 4, N, 7, N, 2, N, 12, N, 16};
     int n=sizeof(arr)/sizeof(arr[0]);
     Node* root=construct(arr,n);
     levelOrder(root);
