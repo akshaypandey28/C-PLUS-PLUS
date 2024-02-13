@@ -5,6 +5,8 @@ vector<int> pge(vector<int> &arr){
     reverse(arr.begin(),arr.end());
     vector<int> output(n,-1); //this stores the element value not index
 //thats why i use to pass the index value not element value
+
+//here stack is used for storing elements in decreasing order
     stack<int> st; //storing indexes
     st.push(0); //index 0
     for(int i=1; i<n; i++){

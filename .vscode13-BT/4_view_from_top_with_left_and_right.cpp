@@ -18,7 +18,7 @@ vector<int> top_View_BT(Node* root){
     }
     queue<pair<Node*,int>> q; //pair queue
     q.push(make_pair(root,0));
-    map<int,int> m;//here i will store the value of every column
+    map<int,int> m;//here m will store the value of every column
     while(q.empty()!=1){
         int nodesAtCurrnetLevel=q.size();
         while(nodesAtCurrnetLevel--){

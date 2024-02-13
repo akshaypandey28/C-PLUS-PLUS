@@ -2,6 +2,7 @@
 using namespace std;
 class maxheap{
     vector<int> hp;
+    int i; //[0,i] upto 0 to i everthing is maxheap
 public:
     void upheapify(int ci){ // ci is child index
         while(ci>0){
@@ -16,19 +17,19 @@ public:
         }
     }
 
-    void downheapify(int idx){     //perculate down
+    void downheapify(int idx,int bound){
         while(idx<hp.size()){
             int lc=2*idx+1; //left child
             int rc=2*idx+2; //right child
-            if(lc>=hp.size()) break; // because there is no child present of lc idx
+            if(lc>=bound) break; // because there is no child present of lc idx
 //here break is used because when there is no left child present then right child cann't be there
 
+            //there may be a case exist that rc exist but lc and vice versa
             int max_ele=idx; //initialise for finding the index of max element of the heap
-            //here is checking between every three elements of the array that is root left and right child
             if(hp[lc]>hp[max_ele]){
                 max_ele=lc;
             }
-            if(rc < hp.size() and hp[rc]>hp[max_ele]){
+            if(rc < bound and hp[rc]>hp[max_ele]){
                 max_ele=rc;
             }
             if(max_ele!=idx){
@@ -40,10 +41,11 @@ public:
             }
         }
     }
+
     void push(int element){
         /* 
         Time: O(logn)
-         */
+        */
         hp.push_back(element);
         upheapify(hp.size()-1); // this is done because new element that has to be inserted into the heap 
         //is present at last index of the heap vector
@@ -52,56 +54,58 @@ public:
     void pop(){
         /* 
         Time: O(logn)
-         */
+        */
         //removes the highest priority element 
-        if(empty()) return ;
+        if(hp.empty()) return ;
         swap( hp[0] , hp[hp.size()-1] );
-        hp.pop_back(); 
+        i--;
         //downheapify executed only when after removing element heap must contain the elements
-        if(!empty()) downheapify(0);//0 because downheapify 0th index se krna hai
+        if(!hp.empty()) downheapify(0,i);//0 because downheapify 0th index se krna hai
     }
-    int peek(){
-        /* 
-        Time: O(1)
-         */
-        if(empty()) return INT_MIN;
-        return hp[0];
-    }
-    bool empty(){
-        return hp.size()==0;
-    }
-
     void display(){
-        for(int i=0; i<hp.size(); i++){
-            cout<<hp[i]<<" ";
+        for(int j=0; j<i; j++){
+            cout<<hp[j]<<" ";
         }
         cout<<endl;
     }
+
+    maxheap(vector<int> v){
+        /* 
+        T.C => O(nlogn) as for each upheapify it's logn for n it's O(nlogn)
+
+        T.C => O(n) for downheapify because we left the bottom most level and heapification done from second last
+        level upto 1st level
+        */
+
+        hp=v;
+        int n=hp.size();
+        i=n;
+        for(int j=n/2; j>=0; j--){
+            downheapify(j,i);
+        }
+    }
+
+    vector<int> heapSort(){ //HEAP SORT
+        int sz=hp.size();
+        while(sz>0){
+            int el=0;
+            swap(hp[el],hp[i]);
+            i--;
+            downheapify(0,i);
+            sz--;
+        }
+        return hp;
+    }
 };
-int main(){
-    maxheap hp;
-    /* hp.push(3);
-    hp.push(4);
-    hp.push(11);
-    hp.push(9);
-    hp.push(14);
-    hp.push(-1);
-    hp.push(30);
-    hp.push(44);
-    hp.push(50);
-    hp.display();
-    hp.pop();
-    hp.display(); */
-    
-    hp.push(85);
-    hp.push(55);
-    hp.push(10);
-    hp.push(25);
-    hp.push(27);
-    hp.push(70);
-    hp.push(40);
-    hp.push(28);
-    hp.push(35);
-    hp.display();
-return 0;
+void heapSort(vector<int> &v){
+    maxheap hp(v);
+    v=hp.heapSort();
+}
+int main(int argc,char const *argv[]){
+    vector<int> v {9,6,1,19,3,2,8,12,5};
+    heapSort(v);
+    for(int i=0; i<v.size(); i++){
+        cout<<v[i]<<" ";
+    }
+    return 0;
 }

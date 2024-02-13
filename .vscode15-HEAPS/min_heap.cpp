@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-class maxheap{
+class minheap{
     vector<int> hp;
 public:
     void upheapify(int ci){ // ci is child index
         while(ci>0){
             int pi= (ci-1)/2; // pi is parent index
-            if(hp[pi]<hp[ci]){
+            if(hp[pi]>hp[ci]){
                 swap(hp[pi],hp[ci]);
                 ci=pi;
             }
@@ -16,19 +16,19 @@ public:
         }
     }
 
-    void downheapify(int idx){     //perculate down
+    void downheapify(int idx){ 
         while(idx<hp.size()){
             int lc=2*idx+1; //left child
             int rc=2*idx+2; //right child
             if(lc>=hp.size()) break; // because there is no child present of lc idx
 //here break is used because when there is no left child present then right child cann't be there
 
+            //there may be a case exist that rc exist but lc and vice versa
             int max_ele=idx; //initialise for finding the index of max element of the heap
-            //here is checking between every three elements of the array that is root left and right child
-            if(hp[lc]>hp[max_ele]){
+            if(hp[lc]<hp[max_ele]){
                 max_ele=lc;
             }
-            if(rc < hp.size() and hp[rc]>hp[max_ele]){
+            if(rc < hp.size() and hp[rc]<hp[max_ele]){
                 max_ele=rc;
             }
             if(max_ele!=idx){
@@ -58,7 +58,7 @@ public:
         swap( hp[0] , hp[hp.size()-1] );
         hp.pop_back(); 
         //downheapify executed only when after removing element heap must contain the elements
-        if(!empty()) downheapify(0);//0 because downheapify 0th index se krna hai
+        if(!empty()) downheapify(0);
     }
     int peek(){
         /* 
@@ -79,29 +79,21 @@ public:
     }
 };
 int main(){
-    maxheap hp;
-    /* hp.push(3);
-    hp.push(4);
-    hp.push(11);
-    hp.push(9);
-    hp.push(14);
-    hp.push(-1);
-    hp.push(30);
-    hp.push(44);
-    hp.push(50);
+    minheap hp;
+    hp.push(142);
+    hp.push(543);
+    hp.push(123);
+    hp.push(65);
+    hp.push(453);
+    hp.push(879);
+    hp.push(572);
+    hp.push(434);
+    hp.push(111);
+    hp.push(242);
+    hp.push(811);
+    hp.push(102);
     hp.display();
     hp.pop();
-    hp.display(); */
-    
-    hp.push(85);
-    hp.push(55);
-    hp.push(10);
-    hp.push(25);
-    hp.push(27);
-    hp.push(70);
-    hp.push(40);
-    hp.push(28);
-    hp.push(35);
     hp.display();
 return 0;
 }

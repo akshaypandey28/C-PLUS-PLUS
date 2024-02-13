@@ -29,6 +29,9 @@ string convert(string post){
 int main(){
     string post="ab+cd-*";
     cout<<convert(post)<<endl;
-    cout<<convert("ABC/-AK/L-*")<<endl;
+    post="ijk*l/+mn+-";
+    cout<<convert(post)<<endl;
+    post="ABC/-AK/L-*";
+    cout<<convert(post)<<endl;
 return 0;
 }
