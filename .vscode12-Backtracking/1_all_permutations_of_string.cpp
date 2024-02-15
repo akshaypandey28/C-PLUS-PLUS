@@ -1,11 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-void all_permutations_of_string(string &str,int i){
+void all_permutations_of_string(string &str,int i){ //optimization of permutation function
     if(i==str.size()){
         cout<<str<<"\n";
         return;
     }
+    unordered_set<char> s;//set is used for ignoring the calls of repeated character and this is for all function call
     for(int j=i; j<str.size(); j++){
+        if(s.count(str[j])) continue; //if character is present already in the set then that particular is ignored
+        s.insert(str[j]);
         swap(str[i],str[j]); //swapping such that each element has a chance 
         //for becoming first element
         all_permutations_of_string(str,i+1);
@@ -30,7 +33,7 @@ and same procedure is applied on the remaining input string
     }
 }
 int main(){
-    string str="821";
+    string str="abc";
     all_permutations_of_string(str,0);
     permutation(str,"");
 return 0;
