@@ -103,5 +103,7 @@ int main(){
     hp.push(28);
     hp.push(35);
     hp.display();
+    hp.pop();
+    hp.display();
 return 0;
 }

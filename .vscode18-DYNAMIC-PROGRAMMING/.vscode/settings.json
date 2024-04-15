@@ -4,6 +4,8 @@
         "*.tcc": "cpp",
         "random": "cpp",
         "functional": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }

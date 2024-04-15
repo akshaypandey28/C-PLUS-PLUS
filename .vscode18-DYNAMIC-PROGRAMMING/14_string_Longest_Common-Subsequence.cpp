@@ -18,7 +18,7 @@ using namespace std;
 
         else{
             return dp[i][j]= max(lcs(text1, text2, i, j + 1, m, n,output), 
-                   lcs(text1, text2, i + 1, j, m, n,ans));  // lcs(select , not select) , lcs(not select , select)
+                   lcs(text1, text2, i + 1, j, m, n,output));  // lcs(select , not select) , lcs(not select , select)
         }  
     }
 int main(){
