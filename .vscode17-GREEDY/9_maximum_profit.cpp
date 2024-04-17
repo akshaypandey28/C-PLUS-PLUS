@@ -1,8 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-return 0;
-}
+/* https://leetcode.com/problems/maximum-profit-in-job-scheduling/ */
 class Solution {
 public:
     int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
@@ -32,3 +30,6 @@ public:
         return mp;
     }
 };
+int main(){
+return 0;
+}
