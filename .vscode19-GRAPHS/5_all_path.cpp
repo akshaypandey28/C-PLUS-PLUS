@@ -29,7 +29,7 @@ void dfs(int curr,int end,vector<int> &path){
         }
     }
     path.pop_back(); //removing because there may be a chance that curr can become the part of any other path
-    //after the for loop i get all the path that can be formed with the curr source and that's why i remove the 
+    //after the for loop, i get all the path that can be formed with the curr source and that's why i remove the 
     //curr from the visited set i.e marking unvisited
     visited.erase(curr); 
     return ;

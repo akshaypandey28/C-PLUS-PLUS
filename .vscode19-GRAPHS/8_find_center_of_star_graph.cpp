@@ -12,10 +12,6 @@ public:
             }
         }
         for(auto ele: m){
-            // if(ele.second == edges.size() ){
-            //     int x=ele.first;
-            //     return x;
-            // }
             if(ele.second == edges.size() ) return ele.first;
         }
         return -1;

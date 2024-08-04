@@ -3,8 +3,6 @@ using namespace std;
 /* https://leetcode.com/problems/rotting-oranges/description/ */
 class Solution {
 public:
-
-
     int orangesRotting(vector<vector<int>>& grid) {
         queue<pair<int,int> > qu;
         int fo=0;

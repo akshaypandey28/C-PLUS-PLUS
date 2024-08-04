@@ -1,15 +1,3 @@
-/* #include<bits/stdc++.h>
-using namespace std;
-int main(){
-    int num=6;
-    float n=float(num);
-    //n=(n*100000);
-    n=n/100000;
-    cout<<setprecision(5)<<n;
-    //cout<<n;
-return 0;
-} */
-
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -18,6 +6,7 @@ return 0;
 using namespace std;
 
 class CustomComparator {
+    public:
     bool operator()(const pair<int, string>& p1, const pair<int, string>& p2) const {
         // Compare based on the first integer value
         if (p1.first != p2.first) {

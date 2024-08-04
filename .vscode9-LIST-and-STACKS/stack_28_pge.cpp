@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int> nge(vector<int> &arr){
+vector<int> pge(vector<int> &arr){
     int n=arr.size();
     vector<int> output(n,-1);
     stack<int> st; //storing indexes
@@ -21,6 +21,6 @@ int main(){
     int n; cin>>n;   vector<int> v(n);
     for(int i=0; i<n;  i++){
         cin>>v[i];    }
-    vector<int> res=nge(v);
+    vector<int> res=pge(v);
     for(int i=0; i<res.size(); i++){
         cout<<res[i]<<" ";   }   return 0;   }

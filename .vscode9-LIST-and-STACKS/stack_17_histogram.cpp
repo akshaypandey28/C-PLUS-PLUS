@@ -5,7 +5,7 @@ using namespace std;
  */
 int histogram(vector<int> &arr){
     int n=arr.size();
-    stack<int> st; //storing indexes
+    stack<int> st; //storing indexes of the element in increasing order
     st.push(0); //index 0
     int ans=INT16_MIN;
     for(int i=1; i<n; i++){

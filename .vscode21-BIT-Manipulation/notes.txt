@@ -1,0 +1,38 @@
+1st point
+
+y<<x (left shift) iska mtlb y ke aage x zeros lg jayenge (by the help of 2^(x)) y is binary number
+let 2^x=any number 
+then any number in binary form contains x zeros
+power  number   binary
+2^0    1        1
+2^1    2        10
+2^2    4        100
+2^3    8        1000 etc means contains x zeros in binary form
+
+and 
+1<<x then it is 2^x
+1>>x then it is 1/2^x
+
+
+2nd point
+
+n>>x = n/(2^x)   right shift
+n<<x = n*(2^x)   left shift
+
+
+3rd point
+
+       same bits   flipped bits
+x   -> ____        _______
+x-1 -> ____        _______
+
+x&x-1 eliminate 1 set bit and result of x&x-1 == y 
+while y !=0 do the same process and in each iteration 1 set bit get eliminated
+known as [brian kernighan's algorithm]
+
+
+4th point 
+x&y < x (suppose x i bigger number)
+X&y = x (if both are same)
+
+

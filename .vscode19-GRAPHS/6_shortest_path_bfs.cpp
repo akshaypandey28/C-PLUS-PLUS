@@ -20,13 +20,15 @@ void bfs(int src,int dest,vector<int> &dist){ // in unweighted graph shortest
     qu.push(src);
     while(qu.empty()!=1){
         int curr=qu.front();
-        cout<<curr<<" "; // traversal via bfs 
+        cout<<curr<<" "; // traversal via bfs
         qu.pop();
         for(auto neighbour: graph[curr]){
             if(not visited.count(neighbour)){ //only to that neighbour which is not counted till now
                 qu.push(neighbour);
                 visited.insert(neighbour);
-                dist[neighbour]=dist[curr]+1; //source se curr se distance and + 1
+                dist[neighbour]=dist[curr]+1; //source se curr ka distance and + 1
+//means kisi bhi curr ke neighbour ko traverse krenge to curr se har ek neighbour ka distance 1 hi hoga and source to
+//curr ka distance curr ke index pr hai to dist[curr]+1
             }
         }
     }
@@ -46,8 +48,6 @@ int main(){
     cout<<"Destination ";  cin>>y; cout<<endl;
     vector<int> dist;
     bfs(x,y,dist);
-    for(int i=0; i<dist.size(); i++){
-        cout<<dist[i]<<" ";
-    }
+    for(int i=0; i<dist.size(); i++) cout<<dist[i]<<" ";
 return 0;
 }

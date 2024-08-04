@@ -60,7 +60,7 @@ int main(){
         dp.clear();
         dp.resize(5005, -1);
         cout<<f(str, str.size() - 1)<<"\n";
-        cout<<fbu(str)<<"\n";
+        //cout<<fbu(str)<<"\n";
         cin>>str;
     } 
 return 0;

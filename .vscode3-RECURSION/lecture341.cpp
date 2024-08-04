@@ -15,8 +15,6 @@ int main(){
     vector<string> a;
     subsequences(a,s,"",0);
     //sort(a.begin(),a.end());
-    for(int i=0; i<a.size(); i++){
-        cout<<a[i]<<" ";
-    }
+    for(int i=0; i<a.size(); i++) cout<<a[i]<<" ";
 return 0;
 }
