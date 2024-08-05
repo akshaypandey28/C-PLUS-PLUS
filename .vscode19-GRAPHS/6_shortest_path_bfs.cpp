@@ -10,8 +10,7 @@ void add_edge(int src,int dest,bool bi_dir=true){
         graph[dest].push_back(src);
     }
 }
-void bfs(int src,int dest,vector<int> &dist){ // in unweighted graph shortest
-//path can be counted between src and destination
+void bfs(int src,int dest,vector<int> &dist){ // in unweighted graph shortest path can be counted between src and destination
     queue <int> qu ;
     visited.clear();
     dist.resize(v,INT_MAX);
