@@ -100,7 +100,8 @@ void inOrderIterative(Node* root){
     cout<<endl;
 }
 void postOrderIterative(Node* root){
-    stack<Node*> s; //stack is like root right left and also ans 
+    stack<Node*> s; //stack is like root right left and also ans as contains elements like root right left
+    //root is at top and so on continue
     //but in postorder traversal is like left right root
     //that's why ans is reversed 
     vector<int> ans;
