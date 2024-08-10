@@ -50,3 +50,82 @@ int main(){
     for(int i=0; i<dist.size(); i++) cout<<dist[i]<<" ";
 return 0;
 }
+
+/* 
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
+
+using namespace std;
+
+int shortestPathBFS(int n, vector<vector<int>>& adjList, int source, int destination) {
+    vector<int> distance(n, INT_MAX);
+    queue<int> q;
+
+    // Initialize BFS
+    q.push(source);
+    distance[source] = 0;
+
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+
+        // Traverse all adjacent nodes
+        for (int neighbor : adjList[node]) {
+            if (distance[neighbor] == INT_MAX) {
+                distance[neighbor] = distance[node] + 1;
+                q.push(neighbor);
+
+                // If the destination is reached
+                if (neighbor == destination) {
+                    return distance[neighbor];
+                }
+            }
+        }
+    }
+
+    // Return -1 if no path exists between source and destination
+    return -1;
+}
+
+int main() {
+    int n = 6;
+    vector<vector<int>> adjList(n);
+
+    // Example graph setup (undirected graph)
+    adjList[0].push_back(1);
+    adjList[1].push_back(0);
+    
+    adjList[0].push_back(2);
+    adjList[2].push_back(0);
+    
+    adjList[1].push_back(3);
+    adjList[3].push_back(1);
+    
+    adjList[2].push_back(4);
+    adjList[4].push_back(2);
+    
+    adjList[3].push_back(5);
+    adjList[5].push_back(3);
+    
+    adjList[4].push_back(5);
+    adjList[5].push_back(4);
+
+    int source = 0;
+    int destination = 5;
+
+    int shortestPathLength = shortestPathBFS(n, adjList, source, destination);
+
+    cout << "Shortest path length from " << source << " to " << destination << ": " 
+         << (shortestPathLength == -1 ? "No path exists" : to_string(shortestPathLength)) << endl;
+
+    return 0;
+}
+
+Space Efficiency:
+The distance vector uses an array of size n (number of nodes) to track the distances, which inherently serves as a
+marker for visited nodes. If a node's distance remains INT_MAX, it means that the node has not been visited.
+Using a set would require additional memory to store each visited node, which can be avoided by using the distance 
+array.
+ */
