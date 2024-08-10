@@ -8,6 +8,7 @@ struct TreeNode {
      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+//Threaded binary tree concept is used in morris traversal
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
