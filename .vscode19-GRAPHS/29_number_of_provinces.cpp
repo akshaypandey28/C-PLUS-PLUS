@@ -4,6 +4,7 @@ using namespace std;
 //1st approach DSU
 class Solution {
 public:
+//it also finds number of connected component
     int find(vector<int> &parent,int x){
         // TX:(log*n);
         // This method returns which group/cluster x belongs to
