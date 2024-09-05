@@ -103,7 +103,6 @@ public:
                 count++;
             }
         }
-
         return stones.size() - count;
     }
 };
