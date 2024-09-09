@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 /* https://leetcode.com/problems/implement-queue-using-stacks/ */
+//using 2 queue
 class MyQueue {
 public:
     stack<int> s1,s2;
@@ -44,6 +45,47 @@ public:
     }
 };
 
+//implement stack using single queue 
+class MyStack {
+public:
+    queue<int> q;
+    MyStack() {
+        
+    }
+    
+    void push(int x) {
+        q.push(x);
+    }
+    
+    int pop() {
+        int size=q.size();
+        while(size!=1){
+            q.push(q.front());
+            q.pop();
+            size--;
+        }
+        int stack_top=q.front();
+        q.pop();
+        return stack_top;
+    }
+    
+    int top() {
+        int size=q.size();
+        while(size!=1){
+            q.push(q.front());
+            q.pop();
+            size--;
+        }
+        int stack_top=q.front();
+        q.pop();
+        q.push(stack_top);
+        return stack_top;
+    }
+    
+    bool empty() {
+        return q.empty()==1;
+    }
+};
 /**
  * Your MyQueue object will be instantiated and called as such:
  * MyQueue* obj = new MyQueue();

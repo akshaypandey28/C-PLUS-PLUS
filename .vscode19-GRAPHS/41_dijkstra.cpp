@@ -47,7 +47,7 @@ unordered_map<int, int> djikstra(int src, int n) { // O(VlogV + ElogV)
             pq.pop();
             continue;
         }
-        vis.insert(curr.second);//on pop up from pq visited is marked , not on insertion in pq
+        vis.insert(curr.second);//on pop up from pq ,visited is marked , not on insertion in pq
         pq.pop();//if pop operation performed then it means the best distance for this node from source is calculated
 
         for(auto neighbour : gr[curr.second]) {

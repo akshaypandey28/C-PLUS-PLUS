@@ -36,8 +36,6 @@ public:
         if(i == x and j == y and grid[i][j] == 1) result--;
 
         return dp[i][j][x] = result;
-
-
     }
     int cherryPickup(vector<vector<int>>& grid) {
         memset(dp, -1, sizeof dp);
