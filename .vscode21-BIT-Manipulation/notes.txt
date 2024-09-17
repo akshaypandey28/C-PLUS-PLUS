@@ -32,7 +32,7 @@ known as [brian kernighan's algorithm]
 
 
 4th point 
-x&y < x (suppose x i bigger number)
+x&y < x (suppose x is bigger number)
 X&y = x (if both are same)
 
 

@@ -29,7 +29,7 @@ public:
 
 
         /* bottom to up
-        dp.resize(1005, vector<int>(1005, 0));
+        dp1.resize(1005, vector<int>(1005, 0));
         for(int i=text1.size()-1; i>=0; i--){
             for(int j=text2.size()-1; j>=0; j--){
                 if (text1[i] == text2[j])  dp1[i][j] = 1 + dp1[i+1][j+1];
@@ -38,6 +38,25 @@ public:
             }
         }
         return dp1[0][0]; */
+
+        /* 
+        int lcs(string text1, string text2) {
+            int n = text1.size(), m = text2.size();
+            
+            vector<int> curr(m + 1, 0), next(m + 1, 0);
+
+            for (int i = n - 1; i >= 0; i--) {
+                for (int j = m - 1; j >= 0; j--) {
+                    if (text1[i] == text2[j])
+                        curr[j] = 1 + next[j + 1]; // Match case
+                    else
+                        curr[j] = max(next[j], curr[j + 1]); // Max between not selecting the current character in one of the strings
+                }
+                next = curr; // Move current row to next
+            }
+            return curr[0];
+        }
+         */
     }
 };
 int main(){

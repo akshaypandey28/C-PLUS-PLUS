@@ -15,8 +15,7 @@ public:
         }
         else{ //on==false
             if(k>0){
-                ans=max(ans,profit(prices,i+1,k,true)-prices[i]); //not avoid and there is no previous txn
-                //which is ongoing
+                ans=max(ans,profit(prices,i+1,k,true)-prices[i]); //not avoid and there is no previous txn which is ongoing
             }
         }
 
