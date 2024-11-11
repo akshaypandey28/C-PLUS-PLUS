@@ -16,10 +16,9 @@ public:
         if (text1[i] == text2[j])
             return dp[i][j] = 1 + lcs(text1, text2, i + 1, j + 1, m, n);
 
-        else{
+        else
             return dp[i][j]= max(lcs(text1, text2, i, j + 1, m, n), 
                    lcs(text1, text2, i + 1, j, m, n));  // lcs(select , not select) , lcs(not select , select)
-        }  
     }
     int longestCommonSubsequence(string text1, string text2) {
         int m = text1.size();

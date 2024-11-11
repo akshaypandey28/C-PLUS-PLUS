@@ -19,7 +19,7 @@ void all_permutations_of_string(string &str,int i){ //optimization of permutatio
 void permutation(string input,string output){ //another way of thinking
 /* this function is such that making input string all character first character of the 
 output string and after that ignore that particular character and remove it from the input string
-and same procedure is applied on the remaining input string
+and same procedure is applied on the remaining input  string
 */
     if(input.size()==0){
         cout<<output<<" ";

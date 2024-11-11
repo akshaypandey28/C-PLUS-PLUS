@@ -36,3 +36,5 @@ x&y < x (suppose x is bigger number)
 X&y = x (if both are same)
 
 
+5th point
+(num & (1 << i))  to check ith bit is set or not 

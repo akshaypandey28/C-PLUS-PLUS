@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int main() {
     string s; cin >> s;
     char ch = s[0];
@@ -33,4 +32,45 @@ int main() {
     }
     return 0;
 }
-//saveChangesInTheEditor
+//input => saveChangesInTheEditor
+//output => SAVE
+//          cHANGES
+//          iN
+//          tHE
+//          eDITOR
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+
+    string s;
+    cin >> s;
+    vector<string> words;// we will first differentiate all words 
+    string current = "";
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (isupper(s[i])) {
+            if (!current.empty()) {
+                words.push_back(current);// if something is already present push it first in vector for eg we initally had "save" so before moving ahead we have to push it then start to form the next word
+            }
+            current = s[i];//if already empty then we start with the capital letter at first 
+        } else {
+           
+            current += s[i];//if its small case then directly keep pushing it initally till first capital letter is occured otherwise from the next case when we finally encounter a capital letter then we first push the capital letter as done above then we use this statement to push the next small letters
+        }
+    }
+    if (!current.empty()) {//push the collected string till now into the vector 
+        words.push_back(current);
+    }
+    for (int i = 0; i < words.size(); i++){
+        string res = "";
+        for (int j = 0; j < words[i].size();j++){
+            if(isupper(words[i][j]))
+                res += tolower(words[i][j]);
+            else
+                res += toupper(words[i][j]);
+        }
+        cout << res << endl;
+    }
+}

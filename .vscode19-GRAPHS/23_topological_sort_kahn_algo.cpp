@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//also used for cycle detection in directed graph
 /* 
 8
 11
@@ -39,7 +40,7 @@ void topoBFS() {
     }
     queue<int> qu;
     unordered_set<int> vis;
-    //here i can remove visited because in both insertion happens only when indegree[i]==0 so any one of them can
+    //here i can remove visited because in both, insertion happens only when indegree[i]==0 so any one of them can
     //take care of this checking without having an extra checking whether it is counted or not by visited
     for(int i = 0; i < v; i++) {
         if(indegree[i] == 0) {
