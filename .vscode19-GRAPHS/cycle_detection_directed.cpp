@@ -14,8 +14,7 @@ class Solution {
     for (auto it : adj[node]) {
         // when the node is not visited
         if (!vis[it]) {
-            if (dfsCheck(it, adj, vis, pathVis) == true)
-                return true;
+            if (dfsCheck(it, adj, vis, pathVis) == true) return true;
         }
         // if the node has been previously visited
         // but it has to be visited on the same path

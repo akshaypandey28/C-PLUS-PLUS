@@ -31,7 +31,7 @@ void add_edge(int u, int v, int wt, bool bidir=true) {
     if(bidir) gr[v].push_back({u, wt});
 }
  
-unordered_map<int, int> djikstra(int src, int n) { // O(VlogV + ElogV)
+unordered_map<int, int> djikstra(int src, int n) { // O(VlogV + ElogV) => O(V+E)logV
     priority_queue<pp, vector<pp> , greater<pp> > pq; // {wt, node}
     unordered_set<int> vis;
     vector<int> via(n+1);
@@ -47,8 +47,8 @@ unordered_map<int, int> djikstra(int src, int n) { // O(VlogV + ElogV)
             pq.pop();
             continue;
         }
-        vis.insert(curr.second);//on pop up from pq ,visited is marked , not on insertion in pq
         pq.pop();//if pop operation performed then it means the best distance for this node from source is calculated
+        vis.insert(curr.second);//on pop up from pq ,visited is marked , not on insertion in pq
 
         for(auto neighbour : gr[curr.second]) {
             if(!vis.count(neighbour.first) and mp[neighbour.first] > mp[curr.second] + neighbour.second) { //this line is relaxation algorithm

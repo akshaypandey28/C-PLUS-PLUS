@@ -12,6 +12,10 @@ using namespace std;
 3 4 5
 ans => 12
  */
+//3 main points
+//Connect all vertices in the graph.
+//Has no cycles.
+//Minimizes the total edge weight.
 int find(vector<int> &parent,int x){
     // TX:(log*n);
     // This method returns which group/cluster x belongs to

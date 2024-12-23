@@ -3,32 +3,35 @@ using namespace std;
 /* https://leetcode.com/problems/number-of-enclaves/ */
 class Solution {
 public:
-    bool bfs(int src,vector<int> &color,vector<vector<int>>& graph,int n){
-        queue<int> qu; //nodes
-        qu.push(src);
-        color[src]=0;
-        while(qu.empty()!=1){
-            int curr=qu.front();
-            qu.pop();
-            for(auto neighbour:graph[curr]){
-                if(color[neighbour]==-1){
-                    color[neighbour]=!color[curr];
-                    qu.push(neighbour);
-                }
-                else if(color[curr]==color[neighbour]) return false;
-            }
-        }
-        return true;
+    //same as of surrounding regions
+    void dfs(vector<vector<int>>& grid,int r,int c,int m,int n){
+        if(r<0 or r>=m or c<0 or c>=n or grid[r][c]!=1) return ;
+        grid[r][c]=-1;
+
+        dfs(grid,r-1,c,m,n);
+        dfs(grid,r+1,c,m,n);
+        dfs(grid,r,c-1,m,n);
+        dfs(grid,r,c+1,m,n);
     }
-    bool isBipartite(vector<vector<int>>& graph) {
-        int n=graph.size();
-        vector<int> color(n,-1); // -1 represent node is unvisited
-        for(int i=0; i<n; i++){
-            if(color[i]==-1){
-                if(bfs(i,color,graph,n)==false) return false; //if there is one connected component is not bipartite , then whole graph is not bipartite
+    int numEnclaves(vector<vector<int>>& grid) {
+        int m=grid.size();
+        int n=grid[0].size();
+        //mark all border 1 to -1 using bfs or dfs
+        for(int i=0; i<m; i++){ //for col 0 and col n-1
+            dfs(grid,i,0,m,n);
+            dfs(grid,i,n-1,m,n);
+        }
+        for(int i=0; i<n; i++){ //for row 0 and row m-1
+            dfs(grid,0,i,m,n);
+            dfs(grid,m-1,i,m,n);
+        }
+        int count=0;
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j]==1) count++;
             }
         }
-        return true;
+        return count;
     }
 };
 int main(){

@@ -13,7 +13,7 @@ void add_edge(int src,int dest,bool bi_dir=true){
     }
 }
 bool dfs(int curr,int end){
-    if(curr==end) return true; //means after traversing through the graph curr and end both poiting to the 
+    if(curr==end) return true; //means after traversing through the graph curr and end both pointing to the 
     //same destination 
     visited.insert(curr); //mark visited
     for(auto neighbour : graph[curr]){ //traversing for all the neighbours for current node
