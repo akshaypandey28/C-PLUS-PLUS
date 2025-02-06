@@ -46,8 +46,8 @@ bool cmp(Edge e1, Edge e2) {
     return e1.wt < e2.wt;
 }
 
-ll kruskals(vector<Edge> &input, int n, int e) { // O(V + ElgE)
-    sort(input.begin(), input.end(), cmp); // ElgE
+ll kruskals(vector<Edge> &input, int n, int e) { // O(V + ElogE)
+    sort(input.begin(), input.end(), cmp); // ElogE
     vector<int> parent(n+1);
     vector<int> rank(n+1, 1);
     for(int i = 0; i <= n; i++) {
@@ -56,10 +56,10 @@ ll kruskals(vector<Edge> &input, int n, int e) { // O(V + ElgE)
     int edgeCount = 0; // n-1 edges exist in a tree for n nodes
     int i = 0;
     ll ans = 0;
-    while(edgeCount < n-1 and i < input.size()) { // V-1 -> O(Vlg*V)
+    while(edgeCount < n-1 and i < input.size()) { // V-1 -> O(Vlog*V)
         Edge curr = input[i]; // because input is sorted so we will get min wt edge
-        int srcPar = find(parent, curr.src);
-        int destpar = find(parent, curr.dest);
+        int srcPar = find(parent, curr.src); //log*V
+        int destpar = find(parent, curr.dest); //log*V
         if(srcPar != destpar) {
             // include edge as this will not make cycle
             Union(parent, rank, srcPar, destpar);
@@ -67,7 +67,7 @@ ll kruskals(vector<Edge> &input, int n, int e) { // O(V + ElgE)
             edgeCount++;
         }
 
-        i++; // doesnt matter u picked the last edge or not, we still need to go to next edge
+        i++; // doesnt matter i picked the last edge or not, we still need to go to next edge
     }
 
     return ans;

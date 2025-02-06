@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>  // overloadoing
+#include<bits/stdc++.h>  // function overloadoing
 using namespace std;
 class sum{
     public:

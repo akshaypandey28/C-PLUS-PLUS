@@ -3,8 +3,8 @@ using namespace std;
 class ABC{
     int x;
     public:
-    void set(int n){
-        x=n;
+    void set(int x){
+        this->x=x;
     }
     int get(){
         return x;

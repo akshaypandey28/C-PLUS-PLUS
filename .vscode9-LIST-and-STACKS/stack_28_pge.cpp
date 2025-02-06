@@ -13,7 +13,7 @@ vector<int> pge(vector<int> &arr){
         st.push(i);
     }
     while(st.empty()!=1){  // for assigning -1 to the elements for
-        output[st.top()]=-1; // which there is no nge
+        output[st.top()]=-1; // which there is no pge
         st.pop();
     }
     return output;    }

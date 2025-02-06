@@ -24,7 +24,9 @@ int main(){
     rectangle obj2(1,2);
     cout<<obj2.l<<"--"<<obj2.b<<endl;
 
-    rectangle obj3=obj2;
+    rectangle obj3=obj2; //deep copy
     cout<<obj3.l<<"---"<<obj3.b<<endl;
+
+    rectangle obj4(obj2); //copy constructor - deep copy
 return 0;
 }

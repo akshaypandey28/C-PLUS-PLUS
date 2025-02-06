@@ -10,36 +10,36 @@ class f{
 class e : public f{
     public:
     e(){
-    cout<<"CLASS E"<<endl;
-    cout<<"----------"<<endl;
+        cout<<"CLASS E"<<endl;
+        cout<<"----------"<<endl;
     }
 };
 class d : public f{
     public:
     d(){
-    cout<<"CLASS D"<<endl;
-    cout<<"----------"<<endl;
+        cout<<"CLASS D"<<endl;
+        cout<<"----------"<<endl;
     }
 };
 class b : public e{
     public:
     b(){
-    cout<<"CLASS B"<<endl;
-    cout<<"----------"<<endl;
+        cout<<"CLASS B"<<endl;
+        cout<<"----------"<<endl;
     }
 };
 class c : public d{
     public:
     c(){
         cout<<"CLASS C"<<endl;
-    cout<<"----------"<<endl;
+        cout<<"----------"<<endl;
     }
 };
 class a : public c,public b{
     public:
     a(){
         cout<<"CLASS A"<<endl;
-    cout<<"----------"<<endl;
+        cout<<"----------"<<endl;
     }
 };
 int main(){

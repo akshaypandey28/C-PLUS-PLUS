@@ -22,7 +22,7 @@ int main(){
     parent *p;
     child c;
     p=&c;
-    p-> print();
-    p-> show();
+    p->print();
+    p->show();
 return 0;
 }

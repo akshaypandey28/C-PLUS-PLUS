@@ -14,7 +14,7 @@ class child1 : public parent{
     //z will not be accessible
 };
 class child2 : private parent{
-    // x will be private 
+    // x will be private
     // y will be private
     // z will not be acceessible
 };
@@ -25,8 +25,8 @@ class child3 : protected parent{
 };
 int main(){
     parent p;
-    p.x;
-    
-
+    child1 ch1;
+    child2 ch2;
+    child3 ch3;
 return 0;
 }

@@ -20,3 +20,23 @@ int main(){
     cout<<endl;
 return 0;
 }
+
+/* 
+vector<long long> printFirstNegativeInteger(long long int A[],
+                                             long long int N, long long int K){
+                        
+          vector<long long> ans;
+          queue<int> qu;
+          for(long long i=0; i<N; i++){
+              if(A[i]<0) qu.push(i);
+          }
+          long long r=0;
+          while(r<=N-K){
+              while(qu.empty()!=1 and qu.front()<r) qu.pop();
+              if(qu.empty()!=1 and qu.front()>=r and qu.front()<r+K) ans.push_back(A[qu.front()]);
+              else ans.push_back(0);
+              r++;
+          }
+          return ans;
+ }
+ */
