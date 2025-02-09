@@ -44,7 +44,7 @@ node* reversell(node* &head){
         prev=currptr;
         currptr=nextptr;
     }
-//when this loop ends,prevptr pointing to last node which is new head
+//when this loop ends,prevptr pointing to last node which is new head 
 node* new_head=prev;
 return new_head;
 }
