@@ -15,12 +15,12 @@ class b{
     b(int n){
         y=n;
     }
-    friend void print(a &obj1,b &obj2); 
+    friend void print(a &obj1,b &obj2);
 };
 void print(a &obj1,b &obj2){
 
     cout<<"x value of class a is "<<obj1.x<<endl; 
-    cout<<"x value of class b is "<<obj2.y<<endl; 
+    cout<<"x value of class b is "<<obj2.y<<endl;
 }
 int main(){
     a obj1(5);

@@ -10,7 +10,7 @@ class a{
     //friend function cannot access members of the class directly
     //here object is used to access members of the class
 };
-void print(a &obj){ //it should not be defined with membership level
+void print(a &obj){ //it should not be defined with membership label
 
     cout<<obj.x<<endl; //friend function cannot access members of the class directly , here object 
     //is used to access members of the class

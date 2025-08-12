@@ -1,6 +1,12 @@
 #include<bits/stdc++.h>
 /* https://leetcode.com/problems/permutations/ */
 using namespace std;
+
+/* 
+Time => O(N! × N)
+There are N! (factorial) permutations of an N-length string
+Each recursive call performs O(N) work
+*/
 void all_permutations_of_string(string &str,int i){ //optimization of permutation function
     if(i==str.size()){
         cout<<str<<"\n";

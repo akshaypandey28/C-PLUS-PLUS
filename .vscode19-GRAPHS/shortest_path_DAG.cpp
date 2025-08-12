@@ -1,7 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
+//1st method => do topo sort using bfs
 //1st step => do topo sort using dfs 
 //2nd step => take out nodes from stack one by one and relax the edges
+
+
+//2nd method => do topo sort using bfs and apply the same logic of finding min weight path
+//insert nodes in queue on when indegree is 0
 class Solution {
 public:
     vector<list<pair<int, int>>> graph;
