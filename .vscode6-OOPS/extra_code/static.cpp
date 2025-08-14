@@ -9,6 +9,7 @@ public:
         x=n;
     }
 
+    //static function can only access static data members
     static void setY(int n){ //static member function or class member function
         y=n;
     }
