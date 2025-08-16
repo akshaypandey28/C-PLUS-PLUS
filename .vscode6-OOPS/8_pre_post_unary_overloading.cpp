@@ -36,7 +36,7 @@ int main(){
 
     //post increment
     Integer i3;
-    i3=i1++; //this line means i1.operator++(); 
+    i3=i1++; //this line means i1.operator++(0);
     i3.showData(); //output 7
     i1.showData(); //output 8
 return 0;

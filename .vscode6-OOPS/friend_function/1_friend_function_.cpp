@@ -1,3 +1,4 @@
+//Friend function is a non member function of the class which can access private members of the class
 #include<bits/stdc++.h>
 using namespace std;
 class a{
