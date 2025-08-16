@@ -6,9 +6,9 @@ Compile time Polymorphism(Static Polymorphism or Early Binding) : Function calls
     implemented using : Function Overloading and Operator Overloading
     
     Function Overloading: Multiple functions with the same name but different parameter types or counts are defined
-    
-    Operator Overloading: Operators are given new meanings for user-defined types and for applying them on Classes
 
+    Operator Overloading: Operators are given new meanings for user-defined types and for applying them on Classes
+    that is when an operator is overloaded with multiple jobs
 Runtime Polymorphism(Dynamic Polymorphism or Late Binding) : Function calls are resolved during runtime
     implemented using : Function Overriding with Virtual functions
 
