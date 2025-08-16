@@ -1,0 +1,7 @@
+Encapsulation => It is the process of hiding data (Data hiding + Data Abstraction)
+The process of wrapping data and methods into a single unit and restricting direct access to data.
+It is achieved by making variable private and methods public like setter and getter.
+
+
+Abstraction => It is the process of hiding implementation
+It is achieved using pure virtual function
