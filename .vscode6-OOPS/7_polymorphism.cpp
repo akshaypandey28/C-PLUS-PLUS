@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>  // function overloadoing
+#include<bits/stdc++.h>  // function overloading (Compile time Polymorphism)
 using namespace std;
 class sum{
     public:

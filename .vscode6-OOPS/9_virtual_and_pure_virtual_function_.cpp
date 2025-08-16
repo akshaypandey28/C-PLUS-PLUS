@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<bits/stdc++.h> //Runtime Polymorphism
 using namespace std;
 //parent class ke pointer me child class ke memory allocate krne ke bad agar hume child class ke kisi
 //method ko access krna hai to same method ko parent class me virtual declare krna must hai
