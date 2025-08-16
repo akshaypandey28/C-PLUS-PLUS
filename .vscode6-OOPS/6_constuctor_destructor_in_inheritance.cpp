@@ -1,3 +1,8 @@
+//In C++, when a child class (derived class) is instantiated, the constructor of the parent class
+//(base class) is called first followed by the constructor of the child class
+
+//In C++, when a child class (derived class) is destroyed, the destructor of the child class is called 
+//first,followed by the destructor of the parent class (base class)
 #include<iostream>
 using namespace std;
 class A{
