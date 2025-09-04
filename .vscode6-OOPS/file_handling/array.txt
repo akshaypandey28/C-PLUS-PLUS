@@ -1,0 +1,4 @@
+original array is: 
+12 2 30 50 0 
+sorted array is: 
+0 2 12 30 50 

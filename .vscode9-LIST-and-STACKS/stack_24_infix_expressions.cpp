@@ -28,11 +28,9 @@ int eval(string &str){
     stack<int> num;
     stack<char> ops;
     for(int i=0; i<str.size(); i++){
-        if(isdigit(str[i])){
-            num.push(str[i]-'0');  }
+        if(isdigit(str[i])) num.push(str[i]-'0');  
 
-        else if(str[i]=='('){
-            ops.push(str[i]);  }
+        else if(str[i]=='(') ops.push(str[i]);  
 
         else if(str[i]==')'){
             while(ops.empty()!=1  && ops.top()!='('){
@@ -40,28 +38,30 @@ int eval(string &str){
                 ops.pop();
                 int v2=num.top();   num.pop();
                 int v1=num.top();   num.pop();
-                num.push(calculate(v1,v2,op));  }
+                num.push(calculate(v1,v2,op));  
+            }
 
-            if(ops.empty()!=1 ){
-                ops.pop();  }
+            if(ops.empty()!=1 ) ops.pop();  
         }
 
         else{
-         while(ops.empty()!=1 && precedence(ops.top()) >=precedence(str[i])){
+            while(ops.empty()!=1 && precedence(ops.top()) >=precedence(str[i])){
                 char op=ops.top();
                 ops.pop();
                 int v2=num.top();   num.pop();
                 int v1=num.top();   num.pop();
-                num.push(calculate(v1,v2,op));   }
-                ops.push(str[i]);
+                num.push(calculate(v1,v2,op));   
+            }
+
+            ops.push(str[i]);
         }
     }
     while(ops.empty()!=1){
-                char op=ops.top();
-                ops.pop();
-                int v2=num.top();   num.pop();
-                int v1=num.top();   num.pop();
-                num.push(calculate(v1,v2,op));
+        char op=ops.top();
+        ops.pop();
+        int v2=num.top();   num.pop();
+        int v1=num.top();   num.pop();
+        num.push(calculate(v1,v2,op));
     }
     return num.top();
 }
