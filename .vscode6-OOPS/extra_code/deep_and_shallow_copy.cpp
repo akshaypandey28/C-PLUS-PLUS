@@ -1,69 +1,86 @@
 #include <iostream>
 using namespace std;
-//chat gpt code
+
 class Rectangle {
 public:
-    int l, b;
-    // Parameterized constructor
+    int *l, *b;
+    bool owns_memory;
+
     Rectangle(int x, int y) {
-        l = x;
-        b = y;
+        l = new int(x);
+        b = new int(y);
+        owns_memory = true;
         cout << "Parameterized Constructor Called" << endl;
     }
 
-    // Shallow Copy Constructor
-    Rectangle(const Rectangle& r, bool shallow) {
+    // Shallow copy constructor
+    Rectangle(const Rectangle &r, bool shallow) {
         if (shallow) {
-            l = r.l; // Copy the value directly
+            l = r.l;
             b = r.b;
+            owns_memory = false;
             cout << "Shallow Copy Constructor Called" << endl;
         }
     }
 
-    // Deep Copy Constructor
-    Rectangle(const Rectangle& r) {
-        l = r.l; // Copy the value explicitly
-        b = r.b;
+    // Deep copy constructor
+    Rectangle(const Rectangle &r) {
+        l = new int(*r.l);
+        b = new int(*r.b);
+        owns_memory = true;
         cout << "Deep Copy Constructor Called" << endl;
     }
 
-    // Destructor
     ~Rectangle() {
-        cout << "Destructor Called for Rectangle with l = " << l << " and b = " << b << endl;
+        if (owns_memory) {
+            delete l;
+            delete b;
+        }
+        cout << "Destructor Called" << endl;
     }
 
-    // Display Function
     void display() const {
-        cout << "Rectangle Dimensions: l = " << l << ", b = " << b << endl;
+        cout << "Rectangle Dimensions: l = " << *l << ", b = " << *b << endl;
     }
 };
 
+// Function to demonstrate shallow copy issue
+void shallowCopyDemo() {
+    Rectangle temp(10, 20);
+    Rectangle obj(temp, true); // Shallow copy
+    cout << "Inside shallowCopyDemo:" << endl;
+    obj.display();
+    // temp and obj share the same memory for l and b
+    // When this function ends, temp is destroyed and deletes l and b
+    // obj's l and b become dangling pointers!
+    cout << "Leaving shallowCopyDemo (temp and obj will be destroyed)" << endl;
+}
+
+// Function to demonstrate deep copy safety
+Rectangle returnDeep() {
+    Rectangle temp(30, 40);
+    Rectangle obj(temp); // Deep copy
+    cout << "Returning Deep Copy Object" << endl;
+    return obj; // Safe: obj has its own memory
+}
+
 int main() {
-    // Original object
-    Rectangle obj1(10, 20);
-    obj1.display();
+    cout << "=== Shallow Copy Demo (Dangling Pointer) ===" << endl;
+    shallowCopyDemo();
+    // Uncommenting the following lines will cause undefined behavior!
+    // Rectangle temp(10, 20);
+    // Rectangle obj(temp, true);
+    // temp.~Rectangle();
+    // obj.display(); // Dangling pointer access!
 
-    // Shallow Copy
-    Rectangle obj2(obj1, true); // Explicitly invoke shallow copy
+    cout << "\n=== Deep Copy Demo (Safe) ===" << endl;
+    Rectangle obj2 = returnDeep();
     obj2.display();
 
-    // Modify obj2 (shallow copy effect is conceptual here)
-    obj2.l = 30;
-    obj2.b = 40;
-    cout << "After modifying shallow copy:" << endl;
-    obj1.display();
-    obj2.display();
-
-    // Deep Copy
-    Rectangle obj3 = obj1; // Implicitly invoke deep copy
-    obj3.display();
-
-    // Modify obj3
-    obj3.l = 50;
-    obj3.b = 60;
+    *obj2.l = 300;
+    *obj2.b = 400;
     cout << "After modifying deep copy:" << endl;
-    obj1.display();
-    obj3.display();
+    obj2.display();
 
     return 0;
 }

@@ -16,7 +16,7 @@ class customer{
             balance+=amount;
             cout<<amount<<" is credited successfully"<<endl;
         }
-        else throw runtime_error("Invalid Amount and should be greater than 0");
+        else throw "Invalid Amount and should be greater than 0";
     }
 
     //withdraw
@@ -25,7 +25,7 @@ class customer{
             balance-=amount;
             cout<<amount<<"is debited successfully"<<endl;
         }
-        else throw runtime_error("Insufficient Balance");
+        else throw "Insufficient Balance";
     }
 };
 int main(){
