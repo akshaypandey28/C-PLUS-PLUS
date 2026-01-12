@@ -15,5 +15,3 @@ Runtime Polymorphism(Dynamic Polymorphism or Late Binding) : Function calls are 
     Function Overriding: A derived class provides its own implementation of a function that is already
     defined in the base class. The base class function must be declared as virtual to enable runtime
     polymorphism
-
-

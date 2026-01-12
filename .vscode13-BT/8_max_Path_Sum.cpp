@@ -11,6 +11,9 @@ struct TreeNode {
 };
 class Solution {
 public:
+//case 1: left and right sum dono positive ho to root ke sath add ho jayega
+//case 2: left ya right me se koi ek negative ho jaye to sirf positive wle ke sath root add hoga
+//case 3: dono negative ho jaye to sirf root answer hoga
 //same function as of height of binary tree
     int sum(TreeNode* root,int &ans){
         if(root==NULL) return 0;
