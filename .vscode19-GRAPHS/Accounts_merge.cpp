@@ -2,50 +2,40 @@
 #include<vector>
 #include<unordered_map>
 #include<algorithm>
+#include<numeric>
 using namespace std;
 class Solution {
 public:
-    vector<int> rank, parent;
+    vector<int> parent;
     int find(int x){
-        // TX:(log*n);
-        // This method returns which group/cluster x belongs to
         if(parent[x]==x) return x;
         return parent[x]=find(parent[x]);
     }
-    void Union(int a, int b) {
-        // TX:(log*n);
-        a = find(a);
-        b = find(b);
-        if(a == b) return;
-        if(rank[a] >= rank[b]) {
-            rank[a]++;
-            parent[b] = a;
-        } else {
-            rank[b]++;
-            parent[a] = b;
-        }
+    void Union(int a,int b){
+        a=find(a);
+        b=find(b);
+        parent[b]=a;
     }
     vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
         int n=accounts.size();
-        rank.resize(n, 0);
-        parent.resize(n);
-        for (int i = 0; i < n; i++) parent[i] = i;
         unordered_map<string,int> m;
+        parent.clear();
+        parent.resize(n);
+        iota(parent.begin(),parent.end(),0);
 
-        for(int i=0; i<accounts.size(); i++){
+        for(int i=0; i<n; i++){
             for(int j=1; j<accounts[i].size(); j++){
                 string mail=accounts[i][j];
-                if(m.find(mail) == m.end()) m[mail]=i;
+                if(m.find(mail)==m.end()) m[mail]=i; // i will be the parent node of the mail
                 else Union(i,m[mail]);
             }
         }
 
         vector<vector<string>> ans(n);
         for(auto ele:m){
-            int a=find(ele.second);
+            int parent_node=find(ele.second);
             string mail=ele.first;
-
-            ans[a].push_back(mail);
+            ans[parent_node].push_back(mail);
         }
 
         vector<vector<string>> result;
@@ -53,10 +43,10 @@ public:
         for(int i=0; i<n; i++){
             if(ans[i].size()==0) continue;
 
+            string name=accounts[i][0];
+
             vector<string> v;
-
-            v.push_back(accounts[i][0]); //name
-
+            v.push_back(name);
             for(string mail:ans[i]) v.push_back(mail);
 
             sort(v.begin()+1,v.end());

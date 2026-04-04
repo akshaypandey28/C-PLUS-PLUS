@@ -25,31 +25,34 @@ void add_edge(int u, int v, int wt, bool bidir=true) {
 ll prims(int src, int n) {
     priority_queue<pp, vector<pp> , greater<pp> > pq; // {wt, node}
     unordered_set<int> vis;
-    vector<int> par(n+1);
+    vector<int> par(n+1,-1);
     unordered_map<int, int> mp;
     for(int i = 1; i <= n; i++) {
         mp[i] = INT_MAX; //to denote infinity
     }
     pq.push({0, src});
     mp[src] = 0;
-    int total_count = 0; // 0 -> n-1 edges 
-    int result = 0; // sum of wts
+    int total_count = 0; //keeps track of no. of vertices have been added to the MST
+    int result = 0; //it gives the total weight of the MST
     while(total_count < n && !pq.empty()) {
         pp curr = pq.top();
-        if(vis.count(curr.second)) { //if node is already visited that is curr.second
-            pq.pop();
+        pq.pop();
+        int node = curr.second;
+        int wt = curr.first;
+        if(vis.count(node)) { //if node is already visited that is curr.second
             continue;
         }
-        vis.insert(curr.second);
+        result+=wt;
         total_count++;
-        result += curr.first;
-        pq.pop();
+        vis.insert(node);
 
-        for(auto neighbour : gr[curr.second]) {
-            if(!vis.count(neighbour.first) and mp[neighbour.first] > neighbour.second) { // found a better weight
-                pq.push({neighbour.second, neighbour.first});
-                par[neighbour.first] = curr.second;
-                mp[neighbour.first] = neighbour.second;
+        for(auto neighbour : gr[node]) {
+            int v = neighbour.first;
+            int weight = neighbour.second;
+            if(!vis.count(v) and mp[v] > weight) { // found a better weight
+                pq.push({weight, v});
+                par[v] = node;
+                mp[v] = weight;
             }
         }
     }
