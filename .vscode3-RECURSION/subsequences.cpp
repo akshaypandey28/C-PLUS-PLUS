@@ -1,3 +1,5 @@
+//Time Complexity O(2ⁿ)
+//Space Complexity O(n)
 #include<bits/stdc++.h>//given string print all subsequences of it
 using namespace std;
 void subsequences(vector<string> &a,string &s,string b,int i){
