@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-//1st method => do topo sort using bfs
+//1st method => do topo sort using dfs
 //1st step => do topo sort using dfs 
 //2nd step => take out nodes from stack one by one and relax the edges
 
